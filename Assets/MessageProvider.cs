@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 using Mapbox.Unity.Utilities;
 using Mapbox.Unity.Map;
+using Mapbox.Utils;
 
 
 namespace Mapbox.Examples {
@@ -85,13 +86,11 @@ namespace Mapbox.Examples {
 
 			if (messagesRefs.Count > 0) {
 
-				Debug.Log ("");
-				//here use camera position as reference point in case arkit tracking moved the camera within the scene
-				Mapbox.Utils.Vector2d mapRefPoint = new Mapbox.Utils.Vector2d (Camera.main.transform.position.x, Camera.main.transform.position.z);
-				//try this next if camera reference point doesnt work (not 100% sure if arkit moves the camera or camera parent when the user moves?)
-				//Mapbox.Utils.Vector2d mapRefPoint = Mapbox.Utils.Vector2d.zero;
+				Debug.Log ("~~~~~~!!!!!!!GOT UPDATE BITCHES!!!");
+				//here use camera position as reference point in case arkit tracking moved the camera within the scene (hopefully x and z are in the right order?)
+				Vector2d mapRefPoint = new Vector2d (Camera.main.transform.position.x, Camera.main.transform.position.z);
 
-				Mapbox.Utils.Vector2d currLatLong = editorLocation.Location;
+				Vector2d currLatLong = editorLocation.Location;
 
 				Vector3 CameraPosition = Conversions.GeoToWorldPosition (currLatLong,
 					                        mapRefPoint).ToVector3xz ();
@@ -114,12 +113,12 @@ namespace Mapbox.Examples {
 
 			yield return new WaitForSeconds(2f);
 
-			Mapbox.Utils.Vector2d mapRefPoint = Mapbox.Utils.Vector2d.zero;
+			Vector2d mapRefPoint = new Vector2d (Camera.main.transform.position.x, Camera.main.transform.position.z);
 
 			#if !UNITY_EDITOR
-			Mapbox.Utils.Vector2d currLatLong = deviceLocation.Location;
+			Vector2d currLatLong = deviceLocation.Location;
 			#else 
-			Mapbox.Utils.Vector2d currLatLong = editorLocation.Location;
+			Vector2d currLatLong = editorLocation.Location;
 			#endif
 
 			Vector3 CameraPosition = Conversions.GeoToWorldPosition(currLatLong,
@@ -157,11 +156,11 @@ namespace Mapbox.Examples {
 			message2.text = "Castle";
 			messagesList.Add (message2);
 			//message 3
-			Message message2 = new Message{};
-			message2.latitude = 45.518586f;
-			message2.longitude = -122.682014f;
-			message2.text = "Pasta";
-			messagesList.Add (message2);
+			Message message3 = new Message{};
+			message3.latitude = 45.518586f;
+			message3.longitude = -122.682014f;
+			message3.text = "Pasta";
+			messagesList.Add (message3);
 		}
 	}
 }
