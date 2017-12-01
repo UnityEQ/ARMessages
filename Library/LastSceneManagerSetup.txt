@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/LocationProvider.unity
+- path: Assets/Game/Blocks/ARBlocks.unity
   isLoaded: 1
   isActive: 1

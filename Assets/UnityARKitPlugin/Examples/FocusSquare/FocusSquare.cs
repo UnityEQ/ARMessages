@@ -27,16 +27,17 @@ public class FocusSquare : MonoBehaviour {
 		set {
 			squareState = value;
 			foundSquare.SetActive (squareState == FocusState.Found);
-			findingSquare.SetActive (squareState != FocusState.Found);
+			findingSquare.SetActive (squareState == FocusState.Finding);
 		} 
 	}
 
-	bool trackingInitialized;
+	public bool trackingInitialized;
 
 	// Use this for initialization
 	void Start () {
 		SquareState = FocusState.Initializing;
-		trackingInitialized = true;
+		trackingInitialized = false;
+		
 	}
 
 
@@ -56,11 +57,12 @@ public class FocusSquare : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+	if (trackingInitialized) {
 		//use center of screen for focusing
 		Vector3 center = new Vector3(Screen.width/2, Screen.height/2, findingSquareDist);
 
-		#if UNITY_EDITOR
+		//for editor testing
+		//#if UNITY_EDITOR
 		Ray ray = Camera.main.ScreenPointToRay (center);
 		RaycastHit hit;
 
@@ -69,7 +71,9 @@ public class FocusSquare : MonoBehaviour {
 		if (Physics.Raycast (ray, out hit, maxRayDistance, collisionLayerMask)) {
 			//we're going to get the position from the contact point
 			foundSquare.transform.position = hit.point;
-			Debug.Log (string.Format ("x:{0:0.######} y:{1:0.######} z:{2:0.######}", foundSquare.transform.position.x, foundSquare.transform.position.y, foundSquare.transform.position.z));
+			var newBlockPosition = hit.transform.position + hit.normal;
+			Debug.Log(newBlockPosition + " :NEW");
+			//Debug.Log (string.Format ("x:{0:0.######} y:{1:0.######} z:{2:0.######}", foundSquare.transform.position.x, foundSquare.transform.position.y, foundSquare.transform.position.z));
 
 			//and the rotation from the transform of the plane collider
 			SquareState = FocusState.Found;
@@ -77,36 +81,37 @@ public class FocusSquare : MonoBehaviour {
 			return;
 		}
 
-
-		#else
-		var screenPosition = Camera.main.ScreenToViewportPoint(center);
-		ARPoint point = new ARPoint {
-			x = screenPosition.x,
-			y = screenPosition.y
-		};
-
-		// prioritize reults types
-		ARHitTestResultType[] resultTypes = {
-			ARHitTestResultType.ARHitTestResultTypeExistingPlaneUsingExtent, 
-			// if you want to use infinite planes use this:
-			//ARHitTestResultType.ARHitTestResultTypeExistingPlane,
-			//ARHitTestResultType.ARHitTestResultTypeHorizontalPlane, 
-			//ARHitTestResultType.ARHitTestResultTypeFeaturePoint
-		}; 
-
-		foreach (ARHitTestResultType resultType in resultTypes)
-		{
-			if (HitTestWithResultType (point, resultType))
+		//for mobile devices not editor
+		//#else
+		//if (trackingInitialized) {
+			var screenPosition = Camera.main.ScreenToViewportPoint(center);
+			ARPoint point = new ARPoint {
+				x = screenPosition.x,
+				y = screenPosition.y
+			};
+	
+			// prioritize reults types
+			ARHitTestResultType[] resultTypes = {
+				//ARHitTestResultType.ARHitTestResultTypeExistingPlaneUsingExtent, 
+				// if you want to use infinite planes use this:
+				//ARHitTestResultType.ARHitTestResultTypeExistingPlane,
+				ARHitTestResultType.ARHitTestResultTypeHorizontalPlane, 
+				//ARHitTestResultType.ARHitTestResultTypeFeaturePoint
+			}; 
+	
+			foreach (ARHitTestResultType resultType in resultTypes)
 			{
-				SquareState = FocusState.Found;
-				return;
+				if (HitTestWithResultType (point, resultType))
+				{
+					SquareState = FocusState.Found;
+					return;
+				}
 			}
-		}
-
-		#endif
+		//}
+		//#endif
 
 		//if you got here, we have not found a plane, so if camera is facing below horizon, display the focus "finding" square
-		if (trackingInitialized) {
+		//if (trackingInitialized) {
 			SquareState = FocusState.Finding;
 
 			//check camera forward is facing downward
