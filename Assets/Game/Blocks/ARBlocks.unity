@@ -735,6 +735,12 @@ Prefab:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114100326808230814, guid: ae4edfab3a5e3ea41b529ffdab4e1887,
+        type: 2}
+      propertyPath: DiamondOre
+      value: 
+      objectReference: {fileID: 1436940479082668, guid: d16beda634026d44eae5e234f102b928,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae4edfab3a5e3ea41b529ffdab4e1887, type: 2}
   m_IsPrefabParent: 0
@@ -1265,7 +1271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &463716910
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1743,7 +1749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9d5deec4633ba4398fb99af8a9e76d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messagePrefabAR: {fileID: 1440574429086356, guid: d16beda634026d44eae5e234f102b928,
+  messagePrefabAR: {fileID: 1436940479082668, guid: d16beda634026d44eae5e234f102b928,
     type: 2}
 --- !u!114 &717069426
 MonoBehaviour:

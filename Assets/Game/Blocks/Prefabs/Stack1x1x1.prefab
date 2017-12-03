@@ -9,20 +9,21 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1440574429086356}
+  m_RootGameObject: {fileID: 1436940479082668}
   m_IsPrefabParent: 1
---- !u!1 &1440574429086356
+--- !u!1 &1436940479082668
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4890632043490222}
-  - component: {fileID: 33937438134421986}
-  - component: {fileID: 65265463599798150}
-  - component: {fileID: 23838764654068524}
-  - component: {fileID: 114795354605055080}
+  - component: {fileID: 4366568431176040}
+  - component: {fileID: 33243862129641748}
+  - component: {fileID: 65962919999934250}
+  - component: {fileID: 23091712386147224}
+  - component: {fileID: 114804044324909510}
+  - component: {fileID: 114184053382185298}
   m_Layer: 10
   m_Name: Stack1x1x1
   m_TagString: Untagged
@@ -30,12 +31,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4890632043490222
+--- !u!4 &4366568431176040
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1440574429086356}
+  m_GameObject: {fileID: 1436940479082668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
@@ -43,15 +44,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23838764654068524
+--- !u!23 &23091712386147224
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1440574429086356}
+  m_GameObject: {fileID: 1436940479082668}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -67,6 +69,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -75,31 +78,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33937438134421986
+--- !u!33 &33243862129641748
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1440574429086356}
+  m_GameObject: {fileID: 1436940479082668}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65265463599798150
+--- !u!65 &65962919999934250
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1440574429086356}
-  m_Material: {fileID: 13400000, guid: d1947b9683f5342aaa8650f1005d9952, type: 2}
+  m_GameObject: {fileID: 1436940479082668}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114795354605055080
+--- !u!114 &114184053382185298
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1440574429086356}
+  m_GameObject: {fileID: 1436940479082668}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c03cd60cdb9ae0f4e81ddd84f421bd87, type: 3}
@@ -107,3 +110,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   explosion: {fileID: 1889338151831916, guid: 188aea6f27f9e814a9c900bec0a4d404, type: 2}
+--- !u!114 &114804044324909510
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436940479082668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a2e7c3fca831f409b84e8b31a49544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originPos:
+    x: 0
+    y: 0
+  Map: {fileID: 0}

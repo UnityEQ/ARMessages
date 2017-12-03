@@ -18,7 +18,7 @@ public class PinController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log(originPos);
-		var pos = Conversions.GeoToWorldPosition(originPos, Map.CenterMercator, Map.WorldRelativeScale);
+		//var pos = Conversions.GeoToWorldPosition(originPos, Map.CenterMercator, Map.WorldRelativeScale);
 		//transform.position = new Vector3((float)pos.x, 0, (float)pos.y);
 	}
 }

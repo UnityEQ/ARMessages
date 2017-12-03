@@ -23,7 +23,7 @@ public class BlocksSpawner : MonoBehaviour {
 
 		yield return new WaitForSeconds (2f);
 		LoadAllMessages();
-		// SaveMessage ("1", 1.1,1.1,1.1,1,1);
+		//SaveMessage ("1", 1.1,1.1,1.1,1,1);
 	}
 
 	public void RemoveAllMessages(){
@@ -48,8 +48,8 @@ public class BlocksSpawner : MonoBehaviour {
 				List<GSData> locations = response.ScriptData.GetGSDataList ("all_Blocks");
 				for (var e = locations.GetEnumerator (); e.MoveNext ();) {
 					
-					GameObject MessageBubble = Instantiate (messagePrefabAR);
-					Message message = MessageBubble.GetComponent<Message>();
+					//GameObject MessageBubble = Instantiate (messagePrefabAR);
+					//Message message = MessageBubble.GetComponent<Message>();
 
 					//message.name = e.Current.GetString ("name");
 					//message.lat = double.Parse(e.Current.GetString ("lat"));
@@ -57,7 +57,7 @@ public class BlocksSpawner : MonoBehaviour {
 					//message.alt = double.Parse(e.Current.GetString ("alt"));
 					//message.type = int.Parse(e.Current.GetString ("type"));
 					//message.type = int.Parse(e.Current.GetString ("health"));
-					messageObjectList.Add(MessageBubble);
+					//messageObjectList.Add(MessageBubble);
 				}
 			} else {
 				Debug.Log("Error Loading Message Data...");
@@ -67,7 +67,7 @@ public class BlocksSpawner : MonoBehaviour {
 		//ARMessageProvider.Instance.LoadARMessages (messageObjectList);
 	}
 
-	public void SaveMessage(string name, double lat, double lon, double alt, int type, int health){
+	public void SaveMessage(string name, double lat, double lon, float alt, int type, int health){
 		new GameSparks.Api.Requests.LogEventRequest ()
 
 			.SetEventKey ("SAVE_BLOCKS")

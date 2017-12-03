@@ -36,14 +36,16 @@ public class PlacePins : MonoBehaviour {
 	void Update () {
 	}
 	
-	public void PinPlacer()
+	public void PinPlacer(GameObject blockObject)
 	{
-		GameObject cube = Instantiate(pin, this.transform.position, this.transform.rotation);
-		cube.transform.parent = this.gameObject.transform;
-		cube.transform.position = new Vector3((float)locationProvider._targetPosition.x, 0f, (float)locationProvider._targetPosition.z);
+		GameObject pinObj = Instantiate(pin, this.transform.position, this.transform.rotation);
+		pinObj.transform.parent = this.gameObject.transform;
+		pinObj.transform.position = new Vector3((float)locationProvider._targetPosition.x, 0f, (float)locationProvider._targetPosition.z);
 		
-		PinController pc = cube.GetComponent<PinController>();
-		pc.originPos = locationProvider.latlon;
+		PinController pc = blockObject.GetComponent<PinController>();
+		pc.originPos.x = locationProvider.latlon.x;
+		pc.originPos.y = locationProvider.latlon.y;
 		pc.Map = Map;
+		BlocksSpawner.Instance.SaveMessage ("test", locationProvider.latlon.x, locationProvider.latlon.y,0f,1,1);
 	}
 }
