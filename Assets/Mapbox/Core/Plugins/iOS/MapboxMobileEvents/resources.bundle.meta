@@ -9,10 +9,6 @@ PluginImporter:
   executionOrder: {}
   isPreloaded: 0
   platformData:
-    '':
-      enabled: 0
-      settings:
-        CPU: AnyCPU
     Editor:
       enabled: 1
       settings:
@@ -25,6 +21,9 @@ PluginImporter:
       settings: {}
     OSXUniversal:
       enabled: 1
+      settings: {}
+    data:
+      enabled: 0
       settings: {}
   userData: 
   assetBundleName: 

@@ -1,5 +1,6 @@
 ﻿namespace Mapbox.Unity.Map
 {
+	using System.Collections;
 	using Mapbox.Unity.Location;
 	using UnityEngine;
 
@@ -10,16 +11,18 @@
 
 		ILocationProvider _locationProvider;
 
-		void Start()
+		IEnumerator Start()
 		{
+			yield return null;
 			_locationProvider = LocationProviderFactory.Instance.DefaultLocationProvider;
 			_locationProvider.OnLocationUpdated += LocationProvider_OnLocationUpdated;
 		}
 
-		void LocationProvider_OnLocationUpdated(object sender, Location.LocationUpdatedEventArgs e)
+		void LocationProvider_OnLocationUpdated(Location location)
 		{
+			Debug.Log("InitializeMapWithLocationProvider: " + "WTF");
 			_locationProvider.OnLocationUpdated -= LocationProvider_OnLocationUpdated;
-			_map.Initialize(e.Location, _map.Zoom);
+			_map.Initialize(location.LatitudeLongitude, _map.Zoom);
 		}
 	}
 }

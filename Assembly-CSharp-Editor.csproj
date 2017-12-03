@@ -69,6 +69,7 @@
      <Compile Include="Assets\Mapbox\Core\mapbox-sdk-cs\Tests\UnitTests\Editor\GeoCoordinateBoundsTest.cs" />
      <Compile Include="Assets\Mapbox\Core\mapbox-sdk-cs\Tests\UnitTests\Editor\GeoCoordinateTest.cs" />
      <Compile Include="Assets\Mapbox\Core\mapbox-sdk-cs\Tests\UnitTests\Editor\LonLatToGeoCoordinateConverterTest.cs" />
+     <Compile Include="Assets\Mapbox\Core\mapbox-sdk-cs\Tests\UnitTests\Editor\MapMatcherTest.cs" />
      <Compile Include="Assets\Mapbox\Core\mapbox-sdk-cs\Tests\UnitTests\Editor\MapTest.cs" />
      <Compile Include="Assets\Mapbox\Core\mapbox-sdk-cs\Tests\UnitTests\Editor\PolylineToGeoCoordinateListConverterTest.cs" />
      <Compile Include="Assets\Mapbox\Core\mapbox-sdk-cs\Tests\UnitTests\Editor\PolylineUtilsTest.cs" />
@@ -94,6 +95,7 @@
      <Compile Include="Assets\Mapbox\Unity\Editor\MapboxConfigurationWindow.cs" />
      <Compile Include="Assets\Mapbox\Unity\Editor\MapImageFactoryEditor.cs" />
      <Compile Include="Assets\Mapbox\Unity\Editor\MapVisualizerEditor.cs" />
+     <Compile Include="Assets\Mapbox\Unity\Editor\MaterialModifierEditor.cs" />
      <Compile Include="Assets\Mapbox\Unity\Editor\MergedModifierStackEditor.cs" />
      <Compile Include="Assets\Mapbox\Unity\Editor\MeshFactoryEditor.cs" />
      <Compile Include="Assets\Mapbox\Unity\Editor\ModifierStackEditor.cs" />
@@ -107,16 +109,29 @@
      <Compile Include="Assets\Mapbox\Unity\Editor\StyleSearchAttributeDrawer.cs" />
      <Compile Include="Assets\Mapbox\Unity\Editor\StyleSearchWindow.cs" />
      <Compile Include="Assets\Mapbox\Unity\Editor\TerrainFactoryEditor.cs" />
+     <Compile Include="Assets\Mapbox\Unity\Editor\TerrainWithSideWallsFactoryEditor.cs" />
      <Compile Include="Assets\Mapbox\Unity\Editor\Tests\DuplicateAndroidLibraries.cs.cs" />
      <Compile Include="Assets\Mapbox\Unity\Editor\VectorLayerVisualizerEditor.cs" />
      <Compile Include="Assets\Mapbox\Unity\Editor\VectorTileFactoryEditor.cs" />
+     <Compile Include="Assets\Navigation\Examples\Editor\NavMeshPrefabInstanceEditor.cs" />
+     <Compile Include="Assets\Navigation\NavMeshComponents\Editor\NavMeshComponentsGUIUtility.cs" />
+     <Compile Include="Assets\Navigation\NavMeshComponents\Editor\NavMeshLinkEditor.cs" />
+     <Compile Include="Assets\Navigation\NavMeshComponents\Editor\NavMeshModifierEditor.cs" />
+     <Compile Include="Assets\Navigation\NavMeshComponents\Editor\NavMeshModifierVolumeEditor.cs" />
+     <Compile Include="Assets\Navigation\NavMeshComponents\Editor\NavMeshSurfaceEditor.cs" />
      <Compile Include="Assets\UnityARKitPlugin\Examples\UnityParticlePainter\HSVPicker\Editor\BoxSliderEditor.cs" />
      <Compile Include="Assets\UnityARKitPlugin\Plugins\iOS\UnityARKit\Editor\UnityARBuildPostprocessor.cs" />
+     <None Include="Assets\GoogleARCore\HelloARExample\Materials\Shaders\PlaneGrid.shader" />
      <None Include="Assets\GameSparks\Plugins\GameSparksRT.xml" />
+     <None Include="Assets\UnityARInterface\Examples\Common\Shaders\MobileOcclusion.shader" />
      <None Include="Assets\GameSparks\Plugins\Metro\GameSparksRT.xml" />
-     <None Include="Assets\Resources\Mapbox\MapboxConfiguration.txt" />
+     <None Include="Assets\UnityARInterface\Examples\Common\Shaders\InstancedSurfaceShader.shader" />
+     <None Include="Assets\GoogleARCore\HelloARExample\Materials\Shaders\MobileDiffuseWithLightEstimation.shader" />
+     <None Include="Assets\Mapbox\Shaders\RasterWithTransparencyShader.shader" />
      <None Include="Assets\Mapbox\Fonts\OpenSansLic.txt" />
+     <None Include="Assets\Mapbox\README.txt" />
      <None Include="Assets\UnityARKitPlugin\Examples\Common\Shaders\MobileOcclusion.shader" />
+     <None Include="Assets\GoogleARCore\HelloARExample\Materials\Shaders\PointCloud.shader" />
      <None Include="Assets\Mapbox\Core\Plugins\link.xml" />
      <None Include="Assets\UnityARKitPlugin\ARKitRemote\ARKITREMOTE.txt" />
      <None Include="Assets\UnityARKitPlugin\Plugins\iOS\UnityARKit\Shaders\YUVShaderLinear.shader" />
@@ -124,7 +139,11 @@
      <None Include="Assets\UnityARKitPlugin\Examples\Common\Shaders\InstancedSurfaceShader.shader" />
      <None Include="Assets\UnityARKitPlugin\Plugins\iOS\UnityARKit\Shaders\YUVShader.shader" />
      <None Include="Assets\GameSparks\link.xml" />
+     <None Include="Assets\GoogleARCore\HelloARExample\Materials\Shaders\MobileSpecularWithLightEstimation.shader" />
+     <None Include="Assets\UnityARInterface\Examples\Common\Shaders\MobileARShadow.shader" />
+     <None Include="Assets\Game\Matt\CloudCode.txt" />
      <None Include="Assets\GameSparks\README.txt" />
+     <None Include="Assets\Resources\Mapbox\MapboxConfiguration.txt" />
  <Reference Include="Vuforia.UnityExtensions.Editor">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Editor/Vuforia.UnityExtensions.Editor.dll</HintPath>
  </Reference>
@@ -214,6 +233,12 @@
  </Reference>
  <Reference Include="GameSparksRT">
  <HintPath>C:/Users/Daniel/Documents/GitHub/ARMessages/Assets/GameSparks/Plugins/GameSparksRT.dll</HintPath>
+ </Reference>
+ <Reference Include="GoogleAR.UnityNative">
+ <HintPath>C:/Users/Daniel/Documents/GitHub/ARMessages/Assets/GoogleARCore/SDK/Plugins/GoogleAR.UnityNative.dll</HintPath>
+ </Reference>
+ <Reference Include="Mapbox.IO.Compression">
+ <HintPath>C:/Users/Daniel/Documents/GitHub/ARMessages/Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35/Mapbox.IO.Compression.dll</HintPath>
  </Reference>
  <Reference Include="Mapbox.Json">
  <HintPath>C:/Users/Daniel/Documents/GitHub/ARMessages/Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.Json/Net35/Mapbox.Json.dll</HintPath>

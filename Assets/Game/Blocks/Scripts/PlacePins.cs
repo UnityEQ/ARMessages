@@ -43,7 +43,7 @@ public class PlacePins : MonoBehaviour {
 		cube.transform.position = new Vector3((float)locationProvider._targetPosition.x, 0f, (float)locationProvider._targetPosition.z);
 		
 		PinController pc = cube.GetComponent<PinController>();
-		//pc.originPos = locationProvider.latlon;
+		pc.originPos = locationProvider.latlon;
 		pc.Map = Map;
 	}
 }

@@ -11,13 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b10536479dade041b6db9893fdf723a, type: 3}
   m_Name: OutdoorMapImageFactory
   m_EditorClassIdentifier: 
-  _mapIdType: 1
+  _mapIdType: 0
   _customStyle:
     Name: 
-    Id: mapbox://styles/sk8er8921/ciyuh0lwa002s2rplepdqoi2i
+    Id: 
     Modified: 
     UserName: 
-  _mapId: mapbox://styles/sk8er8921/ciyuh0lwa002s2rplepdqoi2i
+  _mapId: mapbox://styles/mapbox/outdoors-v10
   _useCompression: 0
   _useMipMap: 0
   _useRetina: 0

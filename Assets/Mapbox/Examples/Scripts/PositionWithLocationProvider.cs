@@ -24,6 +24,8 @@ namespace Mapbox.Examples
 		bool _useTransformLocationProvider;
 
 		bool _isInitialized;
+		public Vector3 _targetPosition;
+		public Mapbox.Utils.Vector2d latlon;
 
 		/// <summary>
 		/// The location provider.
@@ -54,7 +56,6 @@ namespace Mapbox.Examples
 			}
 		}
 
-		public Vector3 _targetPosition;
 
 		void Start()
 		{
@@ -70,11 +71,12 @@ namespace Mapbox.Examples
 			}
 		}
 
-		void LocationProvider_OnLocationUpdated(object sender, LocationUpdatedEventArgs e)
+		void LocationProvider_OnLocationUpdated(Location location)
 		{
 			if (_isInitialized)
 			{
-				_targetPosition = Conversions.GeoToWorldPosition(e.Location,
+				latlon = location.LatitudeLongitude;
+				_targetPosition = Conversions.GeoToWorldPosition(location.LatitudeLongitude,
 																 _map.CenterMercator,
 																 _map.WorldRelativeScale).ToVector3xz();
 			}
@@ -82,7 +84,7 @@ namespace Mapbox.Examples
 
 		void Update()
 		{
-			transform.position = Vector3.Lerp(transform.position, _targetPosition, Time.deltaTime * _positionFollowFactor);
+			transform.localPosition = Vector3.Lerp(transform.localPosition, _targetPosition, Time.deltaTime * _positionFollowFactor);
 		}
 	}
 }
