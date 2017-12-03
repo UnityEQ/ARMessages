@@ -22,8 +22,8 @@ public class BlocksSpawner : MonoBehaviour {
 	IEnumerator DelayTestMessage(){
 
 		yield return new WaitForSeconds (2f);
-		//LoadAllMessages();
-		SaveMessage ("1", 1.1,1.1,1.1,1,1);
+		LoadAllMessages();
+		// SaveMessage ("1", 1.1,1.1,1.1,1,1);
 	}
 
 	public void RemoveAllMessages(){
@@ -64,7 +64,7 @@ public class BlocksSpawner : MonoBehaviour {
 			}
 		});
 
-		ARMessageProvider.Instance.LoadARMessages (messageObjectList);
+		//ARMessageProvider.Instance.LoadARMessages (messageObjectList);
 	}
 
 	public void SaveMessage(string name, double lat, double lon, double alt, int type, int health){
@@ -74,9 +74,9 @@ public class BlocksSpawner : MonoBehaviour {
 			.SetEventAttribute ("name", name)
 			.SetEventAttribute ("lat", lat.ToString())
 			.SetEventAttribute ("lon", lon.ToString())
-			.SetEventAttribute ("alt", alt.ToString())
-			.SetEventAttribute ("type", type.ToString())
-			.SetEventAttribute ("health", health.ToString())
+			.SetEventAttribute ("height", alt.ToString())
+			.SetEventAttribute ("material", type.ToString())
+			.SetEventAttribute ("hp", health.ToString())
 			.Send ((response) => {
 				
 			if (!response.HasErrors) {
