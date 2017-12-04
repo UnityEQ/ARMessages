@@ -13,6 +13,7 @@ public class PlacePins : MonoBehaviour {
 	public BasicMap Map;
 	public GameObject pin;
 	public PositionWithLocationProvider locationProvider;
+	public GameObject player;
 	
 	// Use this for initialization
 	void Start () {
@@ -46,6 +47,7 @@ public class PlacePins : MonoBehaviour {
 		pc.originPos.x = locationProvider.latlon.x;
 		pc.originPos.y = locationProvider.latlon.y;
 		pc.Map = Map;
-		BlocksSpawner.Instance.SaveMessage ("test", locationProvider.latlon.x, locationProvider.latlon.y,0f,1,1);
+		LocationInfo li = new LocationInfo();
+		BlocksSpawner.Instance.SaveMessage ("test", locationProvider.latlon.x, locationProvider.latlon.y,li.altitude,1,1);
 	}
 }
