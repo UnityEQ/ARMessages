@@ -152,7 +152,7 @@ PlayerSettings:
     Android: com.Company.ProductName
     Standalone: unity.Unity Technologies.Native Rendering Plugin Example
     Tizen: com.Company.ProductName
-    iOS: com.DanielSalters.ARBlocks
+    iOS: com.DanielSalters.2ARBlocks
     tvOS: com.Company.ProductName
   buildNumber:
     iOS: 1
@@ -600,7 +600,7 @@ PlayerSettings:
   webGLCompressionFormat: 1
   scriptingDefineSymbols: {}
   platformArchitecture:
-    iOS: 2
+    iOS: 1
   scriptingBackend:
     Android: 0
     Metro: 2

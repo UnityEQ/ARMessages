@@ -17,6 +17,8 @@ public class PlacePins : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+       // Start service before querying location
+        Input.location.Start();
 		//in here, we will set coords from the database and then place them around
 		//this will be a work in progress
 		Map.OnInitialized += () =>
@@ -48,6 +50,7 @@ public class PlacePins : MonoBehaviour {
 		pc.originPos.y = locationProvider.latlon.y;
 		pc.Map = Map;
 		LocationInfo li = new LocationInfo();
-		BlocksSpawner.Instance.SaveMessage ("test", locationProvider.latlon.x, locationProvider.latlon.y,li.altitude,1,1);
+		//Debug.Log("alt: " + Input.location.lastData.altitude);
+		BlocksSpawner.Instance.SaveMessage ("test", locationProvider.latlon.x, locationProvider.latlon.y,Input.location.lastData.altitude,1,1);
 	}
 }
