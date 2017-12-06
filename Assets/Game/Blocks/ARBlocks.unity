@@ -571,8 +571,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Coordinates: []
+  CoordinatesB: []
   Map: {fileID: 618199556}
   pin: {fileID: 1405639375760410, guid: d450804dd0975484c9442ba43f76a4ce, type: 2}
+  DiamondOre: {fileID: 1436940479082668, guid: d16beda634026d44eae5e234f102b928, type: 2}
   locationProvider: {fileID: 1774462359}
 --- !u!1001 &167186980
 Prefab:
@@ -1750,6 +1752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placePins: {fileID: 159507861}
+  Map: {fileID: 618199556}
   messagePrefabAR: {fileID: 1436940479082668, guid: d16beda634026d44eae5e234f102b928,
     type: 2}
 --- !u!114 &717069426

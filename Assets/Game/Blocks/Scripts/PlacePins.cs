@@ -9,9 +9,10 @@ using Mapbox.Examples;
 
 public class PlacePins : MonoBehaviour {
 
-	public List<Vector2d> Coordinates; // for network
+	public List<Vector3> Coordinates; // for network
 	public BasicMap Map;
 	public GameObject pin;
+	public GameObject DiamondOre;
 	public PositionWithLocationProvider locationProvider;
 	
 	// Use this for initialization
@@ -29,16 +30,14 @@ public class PlacePins : MonoBehaviour {
 	{
 		foreach (var item in Coordinates)
             {
-                //var latLonSplit = item.Split(',');
-                //var llpos = new Vector2d(double.Parse(latLonSplit[0]), double.Parse(latLonSplit[1]));
-                //var pos = Conversions.GeoToWorldPosition(llpos, Map.CenterMercator, Map.WorldRelativeScale);
-                //var gg = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                //gg.transform.position = new Vector3((float)pos.x, 0, (float)pos.y);
 				GameObject pinObj = Instantiate(pin, this.transform.position, this.transform.rotation);
 				pinObj.transform.parent = this.gameObject.transform;
-				var llpos = new Vector2d(item.x, item.y);
-				var pos = Conversions.GeoToWorldPosition(llpos, Map.CenterMercator, Map.WorldRelativeScale);
-				pinObj.transform.position = new Vector3( (float)pos.x, 0, (float)pos.y);
+				pinObj.transform.position = new Vector3(item.x, 0, item.z);
+
+				GameObject newBlock = Instantiate (DiamondOre, this.transform.position, this.transform.rotation);
+				//GameObject pinObj = Instantiate(pin, this.transform.position, this.transform.rotation);
+				newBlock.transform.parent = this.gameObject.transform;
+				newBlock.transform.position = new Vector3(item.x, item.y, item.z);
 				//and then remove this loc from LIST
             }
 	}

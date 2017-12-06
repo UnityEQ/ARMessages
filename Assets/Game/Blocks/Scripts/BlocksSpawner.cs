@@ -12,6 +12,7 @@ public class BlocksSpawner : MonoBehaviour {
 
 	private static BlocksSpawner _instance;
 	public PlacePins placePins;
+	public BasicMap Map;
 	public static BlocksSpawner Instance { get { return _instance; } } 
 
 	public GameObject messagePrefabAR;
@@ -53,7 +54,13 @@ public class BlocksSpawner : MonoBehaviour {
 				Debug.Log("Received Player Data From GameSparks...");
 				List<GSData> locations = response.ScriptData.GetGSDataList ("all_Blocks");
 				for (var e = locations.GetEnumerator (); e.MoveNext ();) {
-					placePins.Coordinates.Add(new Vector2d(double.Parse(e.Current.GetString ("lat")),double.Parse(e.Current.GetString ("lon"))));
+					var lat = double.Parse(e.Current.GetString ("lat"));
+					var lon = double.Parse(e.Current.GetString ("lon"));
+					var blockY = float.Parse(e.Current.GetString ("blockY"));
+					var llpos = new Vector2d(lat, lon);
+					var pos = Conversions.GeoToWorldPosition(llpos, Map.CenterMercator, Map.WorldRelativeScale);					
+					placePins.Coordinates.Add(new Vector3((float)pos.x,blockY,(float)pos.y));
+//					placePins.CoordinatesB.Add(float.Parse(e.Current.GetString ("cursorY")));
 				}
 				placePins.LoadPins();
 			} else {
