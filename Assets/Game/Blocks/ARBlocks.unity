@@ -540,7 +540,7 @@ GameObject:
   - component: {fileID: 159507860}
   - component: {fileID: 159507861}
   m_Layer: 8
-  m_Name: Pin Plscer
+  m_Name: Pin Placer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -557,7 +557,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1812017130}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &159507861
 MonoBehaviour:
@@ -1433,7 +1433,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1812017130}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &618199556
 MonoBehaviour:
@@ -1447,7 +1447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initializeOnStart: 1
-  _latitudeLongitudeString: 45.5202, -122.6742
+  _latitudeLongitudeString: 45.533385, -122.645224
   _zoom: 18
   _root: {fileID: 1812017130}
   _tileProvider: {fileID: 618199552}
@@ -1702,7 +1702,7 @@ Transform:
   - {fileID: 22675794}
   - {fileID: 1103357164}
   m_Father: {fileID: 1812017130}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &705592229
 MonoBehaviour:
@@ -1749,6 +1749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9d5deec4633ba4398fb99af8a9e76d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  placePins: {fileID: 159507861}
   messagePrefabAR: {fileID: 1436940479082668, guid: d16beda634026d44eae5e234f102b928,
     type: 2}
 --- !u!114 &717069426
@@ -3030,7 +3031,7 @@ RectTransform:
   - {fileID: 624292348}
   - {fileID: 1957967542}
   m_Father: {fileID: 1812017130}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3237,7 +3238,7 @@ Transform:
   - {fileID: 1414357284}
   - {fileID: 620528823}
   m_Father: {fileID: 1812017130}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1774462358
 MonoBehaviour:
@@ -3372,11 +3373,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 159507860}
   - {fileID: 618199555}
   - {fileID: 1574064574}
   - {fileID: 705592228}
   - {fileID: 1774462357}
-  - {fileID: 159507860}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

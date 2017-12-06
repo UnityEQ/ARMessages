@@ -77,7 +77,7 @@ namespace UnityEngine.XR.iOS
 				if(focusSquare.foundSquare.activeSelf){
 					Vector3 tempV = new Vector3(0f,0f,8.4f);
 					GameObject newBlock = Instantiate (DiamondOre, focusSquare.foundSquare.transform.position, focusSquare.foundSquare.transform.rotation);
-					placePins.PinPlacer(newBlock);
+					placePins.PinPlacer(newBlock,focusSquare.foundSquare.transform.localPosition.y);
 				}
 			} else {
 				focusSquare.trackingInitialized = true;

@@ -9,37 +9,41 @@ using Mapbox.Examples;
 
 public class PlacePins : MonoBehaviour {
 
-	public List<string> Coordinates; // for network
+	public List<Vector2d> Coordinates; // for network
 	public BasicMap Map;
 	public GameObject pin;
 	public PositionWithLocationProvider locationProvider;
-	public GameObject player;
 	
 	// Use this for initialization
 	void Start () {
        // Start service before querying location
         Input.location.Start();
 		//in here, we will set coords from the database and then place them around
-		//this will be a work in progress
-		Map.OnInitialized += () =>
-        {
-            foreach (var item in Coordinates)
-            {
-                var latLonSplit = item.Split(',');
-                var llpos = new Vector2d(double.Parse(latLonSplit[0]), double.Parse(latLonSplit[1]));
-                var pos = Conversions.GeoToWorldPosition(llpos, Map.CenterMercator, Map.WorldRelativeScale);
-                var gg = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                gg.transform.position = new Vector3((float)pos.x, 0, (float)pos.y);
-				//and then remove this loc from LIST
-            }
-        };
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	}
 	
-	public void PinPlacer(GameObject blockObject)
+	public void LoadPins()
+	{
+		foreach (var item in Coordinates)
+            {
+                //var latLonSplit = item.Split(',');
+                //var llpos = new Vector2d(double.Parse(latLonSplit[0]), double.Parse(latLonSplit[1]));
+                //var pos = Conversions.GeoToWorldPosition(llpos, Map.CenterMercator, Map.WorldRelativeScale);
+                //var gg = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                //gg.transform.position = new Vector3((float)pos.x, 0, (float)pos.y);
+				GameObject pinObj = Instantiate(pin, this.transform.position, this.transform.rotation);
+				pinObj.transform.parent = this.gameObject.transform;
+				var llpos = new Vector2d(item.x, item.y);
+				var pos = Conversions.GeoToWorldPosition(llpos, Map.CenterMercator, Map.WorldRelativeScale);
+				pinObj.transform.position = new Vector3( (float)pos.x, 0, (float)pos.y);
+				//and then remove this loc from LIST
+            }
+	}
+	
+	public void PinPlacer(GameObject blockObject, float cursorY)
 	{
 		GameObject pinObj = Instantiate(pin, this.transform.position, this.transform.rotation);
 		pinObj.transform.parent = this.gameObject.transform;
@@ -51,6 +55,8 @@ public class PlacePins : MonoBehaviour {
 		pc.Map = Map;
 		LocationInfo li = new LocationInfo();
 		//Debug.Log("alt: " + Input.location.lastData.altitude);
-		BlocksSpawner.Instance.SaveMessage ("test", locationProvider.latlon.x, locationProvider.latlon.y,Input.location.lastData.altitude,1,1);
+		float deviceAlt = Input.location.lastData.altitude;
+		//Debug.log("alt: " + Input.location.lastData.altitude);
+		BlocksSpawner.Instance.SaveMessage ("test",cursorY,locationProvider.latlon.x, locationProvider.latlon.y,Input.location.lastData.altitude,1,1);
 	}
 }
