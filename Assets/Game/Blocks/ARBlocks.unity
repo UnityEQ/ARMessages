@@ -859,6 +859,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 229804521}
+  - component: {fileID: 229804522}
   m_Layer: 0
   m_Name: CameraParent
   m_TagString: Untagged
@@ -880,6 +881,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &229804522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 229804520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb39d89f6f3742418be7c93b4259637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _map: {fileID: 618199557}
+  _positionFollowFactor: 1
+  _useTransformLocationProvider: 0
+  _targetPosition: {x: 0, y: 0, z: 0}
+  latlon:
+    x: 0
+    y: 0
 --- !u!1 &250458892 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1218163928102014, guid: ae4edfab3a5e3ea41b529ffdab4e1887,
@@ -1351,8 +1370,8 @@ GameObject:
   - component: {fileID: 618199557}
   - component: {fileID: 618199554}
   - component: {fileID: 618199553}
-  - component: {fileID: 618199552}
   - component: {fileID: 618199551}
+  - component: {fileID: 618199552}
   m_Layer: 8
   m_Name: ArAlignedMap
   m_TagString: Untagged
@@ -1380,13 +1399,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 618199550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dae9a62a6a8194f49bab9128c9acffb7, type: 3}
+  m_Script: {fileID: 11500000, guid: 15eed3c0528a3498dae4ff8f7b8ae77f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 1414357283}
-  _visibleBuffer: 2
-  _disposeBuffer: 6
-  _updateInterval: 0.33
+  _targetTransform: {fileID: 1414357284}
+  _visibleBuffer: 1
+  _disposeBuffer: 2
 --- !u!114 &618199553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1401,8 +1419,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transform: {fileID: 618199555}
   _maxSamples: 10
-  _ignoreAngleThreshold: 7.5
-  _lerpSpeed: 0.25
+  _ignoreAngleThreshold: 10
+  _lerpSpeed: 0.5
 --- !u!114 &618199554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1421,7 +1439,7 @@ MonoBehaviour:
   _alignmentStrategy: {fileID: 618199553}
   _synchronizationBias: 1
   _arTrustRange: 30
-  _minimumDeltaDistance: 3
+  _minimumDeltaDistance: 1
 --- !u!4 &618199555
 Transform:
   m_ObjectHideFlags: 0
