@@ -12,7 +12,7 @@ public class BlocksSpawner : MonoBehaviour {
 
 	private static BlocksSpawner _instance;
 	public PlacePins placePins;
-	public BasicMap Map;
+	public AbstractMap Map;
 	public static BlocksSpawner Instance { get { return _instance; } } 
 
 	public GameObject messagePrefabAR;

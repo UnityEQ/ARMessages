@@ -10,7 +10,7 @@ using Mapbox.Examples;
 public class PlacePins : MonoBehaviour {
 
 	public List<Vector3> Coordinates; // for network
-	public BasicMap Map;
+	public AbstractMap Map;
 	public GameObject pin;
 	public GameObject DiamondOre;
 	public PositionWithLocationProvider locationProvider;

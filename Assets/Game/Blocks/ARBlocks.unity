@@ -571,8 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Coordinates: []
-  CoordinatesB: []
-  Map: {fileID: 618199556}
+  Map: {fileID: 618199557}
   pin: {fileID: 1405639375760410, guid: d450804dd0975484c9442ba43f76a4ce, type: 2}
   DiamondOre: {fileID: 1436940479082668, guid: d16beda634026d44eae5e234f102b928, type: 2}
   locationProvider: {fileID: 1774462359}
@@ -1349,10 +1348,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 618199555}
+  - component: {fileID: 618199557}
   - component: {fileID: 618199554}
   - component: {fileID: 618199553}
   - component: {fileID: 618199552}
-  - component: {fileID: 618199556}
   - component: {fileID: 618199551}
   m_Layer: 8
   m_Name: ArAlignedMap
@@ -1372,7 +1371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f0fa82f89d64bb9a6524c72d538179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _map: {fileID: 618199556}
+  _map: {fileID: 618199557}
 --- !u!114 &618199552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1417,7 +1416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _arPositionReference: {fileID: 9}
-  _map: {fileID: 618199556}
+  _map: {fileID: 618199557}
   _useAutomaticSynchronizationBias: 1
   _alignmentStrategy: {fileID: 618199553}
   _synchronizationBias: 1
@@ -1437,7 +1436,7 @@ Transform:
   m_Father: {fileID: 1812017130}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &618199556
+--- !u!114 &618199557
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1445,17 +1444,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 618199550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58cb9a85be6f84591938618fa232ce85, type: 3}
+  m_Script: {fileID: 11500000, guid: bcbec1ed7768a40ea93d476c23a129c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _initializeOnStart: 1
   _latitudeLongitudeString: 45.533385, -122.645224
   _zoom: 18
-  _root: {fileID: 1812017130}
+  _root: {fileID: 0}
   _tileProvider: {fileID: 618199552}
-  _mapVisualizer: {fileID: 11400000, guid: d037eb553509f489e9ba7a5a441b45dd, type: 2}
+  _mapVisualizer: {fileID: 11400000, guid: 5c78f162127f44067883454c4f8e174e, type: 2}
   _unityTileSize: 100
   _snapMapHeightToZero: 1
+  _useRelativeScale: 1
 --- !u!1 &620528822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,7 +1752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placePins: {fileID: 159507861}
-  Map: {fileID: 618199556}
+  Map: {fileID: 618199557}
   messagePrefabAR: {fileID: 1436940479082668, guid: d16beda634026d44eae5e234f102b928,
     type: 2}
 --- !u!114 &717069426
@@ -2530,7 +2530,7 @@ MonoBehaviour:
   _autoFireEvent: 0
   _updateInterval: 0
   _sendEvent: 0
-  _map: {fileID: 618199556}
+  _map: {fileID: 618199557}
   _targetTransform: {fileID: 1103357164}
 --- !u!1 &1121666029
 GameObject:
@@ -3270,7 +3270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb39d89f6f3742418be7c93b4259637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _map: {fileID: 618199556}
+  _map: {fileID: 618199557}
   _positionFollowFactor: 1
   _useTransformLocationProvider: 0
   _targetPosition: {x: 0, y: 0, z: 0}

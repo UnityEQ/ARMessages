@@ -8,7 +8,7 @@ using Mapbox.Utils;
 
 public class PinController : MonoBehaviour {
 	public Mapbox.Utils.Vector2d originPos;
-	public BasicMap Map;
+	public AbstractMap Map;
 
 	// Use this for initialization
 	void Start () {
