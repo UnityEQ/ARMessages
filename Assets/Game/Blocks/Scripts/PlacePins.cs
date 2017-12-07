@@ -10,6 +10,7 @@ using Mapbox.Examples;
 public class PlacePins : MonoBehaviour {
 
 	public List<Vector3> Coordinates; // for network
+	public List<Vector3> CoordinatesB; // for network
 	public AbstractMap Map;
 	public GameObject pin;
 	public GameObject DiamondOre;
@@ -34,6 +35,18 @@ public class PlacePins : MonoBehaviour {
 				pinObj.transform.parent = this.gameObject.transform;
 				pinObj.transform.position = new Vector3(item.x, 0, item.z);
 
+				GameObject newBlock = Instantiate (DiamondOre, this.transform.position, this.transform.rotation);
+				//GameObject pinObj = Instantiate(pin, this.transform.position, this.transform.rotation);
+				newBlock.transform.parent = this.gameObject.transform;
+				newBlock.transform.position = new Vector3(item.x, item.y, item.z);
+				//and then remove this loc from LIST
+            }
+	}
+	
+	public void LoadBlocks()
+	{
+		foreach (var item in CoordinatesB)
+            {
 				GameObject newBlock = Instantiate (DiamondOre, this.transform.position, this.transform.rotation);
 				//GameObject pinObj = Instantiate(pin, this.transform.position, this.transform.rotation);
 				newBlock.transform.parent = this.gameObject.transform;

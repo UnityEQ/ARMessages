@@ -13,6 +13,7 @@ public class BlocksSpawner : MonoBehaviour {
 	private static BlocksSpawner _instance;
 	public PlacePins placePins;
 	public AbstractMap Map;
+	public GameObject arCamera;
 	public static BlocksSpawner Instance { get { return _instance; } } 
 
 	public GameObject messagePrefabAR;
@@ -60,6 +61,10 @@ public class BlocksSpawner : MonoBehaviour {
 					var llpos = new Vector2d(lat, lon);
 					var pos = Conversions.GeoToWorldPosition(llpos, Map.CenterMercator, Map.WorldRelativeScale);					
 					placePins.Coordinates.Add(new Vector3((float)pos.x,blockY,(float)pos.y));
+					
+					Vector2d mapRefPoint = new Vector2d (arCamera.transform.position.x, arCamera.transform.position.z);
+					var pos2 = Conversions.GeoToWorldPosition(llpos, mapRefPoint, Map.WorldRelativeScale);					
+					placePins.CoordinatesB.Add(new Vector3((float)pos.x,blockY,(float)pos.y));
 //					placePins.CoordinatesB.Add(float.Parse(e.Current.GetString ("cursorY")));
 				}
 				placePins.LoadPins();

@@ -571,6 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Coordinates: []
+  CoordinatesB: []
   Map: {fileID: 618199557}
   pin: {fileID: 1405639375760410, guid: d450804dd0975484c9442ba43f76a4ce, type: 2}
   DiamondOre: {fileID: 1436940479082668, guid: d16beda634026d44eae5e234f102b928, type: 2}
@@ -859,7 +860,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 229804521}
-  - component: {fileID: 229804522}
   m_Layer: 0
   m_Name: CameraParent
   m_TagString: Untagged
@@ -881,24 +881,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &229804522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 229804520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb39d89f6f3742418be7c93b4259637, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _map: {fileID: 618199557}
-  _positionFollowFactor: 1
-  _useTransformLocationProvider: 0
-  _targetPosition: {x: 0, y: 0, z: 0}
-  latlon:
-    x: 0
-    y: 0
 --- !u!1 &250458892 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1218163928102014, guid: ae4edfab3a5e3ea41b529ffdab4e1887,
@@ -1771,6 +1753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placePins: {fileID: 159507861}
   Map: {fileID: 618199557}
+  arCamera: {fileID: 7}
   messagePrefabAR: {fileID: 1436940479082668, guid: d16beda634026d44eae5e234f102b928,
     type: 2}
 --- !u!114 &717069426
@@ -3273,7 +3256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 061d2afb48ace4fd19611279b6cf732f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationFollowFactor: 2
+  _rotationFollowFactor: 1
   _rotateZ: 0
   _useTransformLocationProvider: 0
 --- !u!114 &1774462359
