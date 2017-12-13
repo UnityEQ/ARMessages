@@ -32,6 +32,8 @@ public class BlocksSpawner : MonoBehaviour {
 
 		yield return new WaitForSeconds (2f);
 		LoadAllMessages();
+		//SavePlayer(new Vector2d(11,11));
+		//LoadPlayers();
 		//SaveMessage ("1", 1.1,1.1,1.1,1,1);
 	}
 
@@ -64,8 +66,8 @@ public class BlocksSpawner : MonoBehaviour {
 					var hp = float.Parse(e.Current.GetString ("hp"));
 					var blockY = float.Parse(e.Current.GetString ("blockY"));
 					
-					ObjectPool.instance.GetObjectForType("Pin",Map,name,lat,lon,height,material,hp,blockY);
-					ObjectPool.instance.GetObjectForType("Stack1x1x1",Map,name,lat,lon,height,material,hp,blockY);
+					GameObjectPool.instance.GetObjectForType("Pin",Map,name,lat,lon,height,material,hp,blockY);
+					GameObjectPool.instance.GetObjectForType("Stack1x1x1",Map,name,lat,lon,height,material,hp,blockY);
 					
 //					var llpos = new Vector2d(lat, lon);
 //					var pos = Conversions.GeoToWorldPosition(llpos, Map.CenterMercator, Map.WorldRelativeScale);					
@@ -80,8 +82,39 @@ public class BlocksSpawner : MonoBehaviour {
 				Debug.Log("Error Loading Message Data...");
 			}
 		});
+	}
+	
+	public void LoadPlayers(){
 
-		//ARMessageProvider.Instance.LoadARMessages (messageObjectList);
+		List<GameObject> messageObjectList = new List<GameObject> ();
+		
+		new GameSparks.Api.Requests.LogEventRequest().SetEventKey("NEAR_ME").Send((response) => {
+			if (!response.HasErrors) {
+				Debug.Log("Received Player Data From GameSparks...");
+				List<GSData> locations = response.ScriptData.GetGSDataList ("data");
+				for (var e = locations.GetEnumerator (); e.MoveNext ();) {
+					Debug.Log(e.Current.GetString ("coordinates"));
+				}
+			} else {
+				Debug.Log("Error Loading Message Data...");
+			}
+		});
+	}
+	
+	public void SavePlayer(Vector2d latlon) {
+		new GameSparks.Api.Requests.LogEventRequest ()
+		
+		.SetEventKey ("STORE")
+		.SetEventAttribute ("LON", latlon.x.ToString())
+		.SetEventAttribute ("LAT", latlon.y.ToString())
+		.Send ((response) => {
+				
+			if (!response.HasErrors) {
+				Debug.Log ("Message Saved To GameSparks...");
+			} else {
+				Debug.Log ("Error Saving Message Data...");
+			}
+		});
 	}
 
 	public void SaveMessage(string name,float cursorY,double lat, double lon, float alt, int type, int health){
@@ -111,19 +144,19 @@ public class BlocksSpawner : MonoBehaviour {
 		{
             GameObject temp = null;
 			
-			//temp = ObjectPool.instance.spawnlist.FirstOrDefault(obj => obj.name == spawn_id.ToString());
-            if (ObjectPool.instance)
+			//temp = GameObjectPool.instance.spawnlist.FirstOrDefault(obj => obj.name == spawn_id.ToString());
+            if (GameObjectPool.instance)
             {
-                if (ObjectPool.instance.spawnlist.Count != 0)
+                if (GameObjectPool.instance.spawnlist.Count != 0)
                 {
-					while (ObjectPool.instance.spawnlist.Count != 0)
+					while (GameObjectPool.instance.spawnlist.Count != 0)
 					{
-					    temp = ObjectPool.instance.spawnlist.First();
+					    temp = GameObjectPool.instance.spawnlist.First();
 					    string PrefabName = temp.GetComponent<PinController>().prefabName;
 						
 					    temp.name = PrefabName;
-					    ObjectPool.instance.PoolObject(temp);
-					    ObjectPool.instance.spawnlist.Remove(temp);
+					    GameObjectPool.instance.PoolObject(temp);
+					    GameObjectPool.instance.spawnlist.Remove(temp);
 					}
                 }
             }
