@@ -9,6 +9,16 @@ using Mapbox.Utils;
 public class PinController : MonoBehaviour {
 	public Mapbox.Utils.Vector2d originPos;
 	public AbstractMap Map;
+	
+	public string prefabName;
+	public string name;
+	public double lat;
+	public double lon;
+	public double height;
+	public int material;
+	public float hp;
+	public float blockY;
+
 
 	// Use this for initialization
 	void Start () {

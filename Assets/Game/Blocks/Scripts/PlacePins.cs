@@ -43,6 +43,7 @@ public class PlacePins : MonoBehaviour {
             }
 	}
 	
+	
 	public void LoadBlocks()
 	{
 		foreach (var item in CoordinatesB)
@@ -55,19 +56,19 @@ public class PlacePins : MonoBehaviour {
             }
 	}
 	
-	public void PinPlacer(GameObject blockObject, float cursorY)
+	public void PinPlacer(Vector3 pos, Vector3 rot, float cursorY)
 	{
 		GameObject pinObj = Instantiate(pin, this.transform.position, this.transform.rotation);
 		pinObj.transform.parent = this.gameObject.transform;
 		pinObj.transform.position = new Vector3((float)locationProvider._targetPosition.x, 0f, (float)locationProvider._targetPosition.z);
 		
-		PinController pc = blockObject.GetComponent<PinController>();
-		pc.originPos.x = locationProvider.latlon.x;
-		pc.originPos.y = locationProvider.latlon.y;
-		pc.Map = Map;
-		LocationInfo li = new LocationInfo();
+		//PinController pc = blockObject.GetComponent<PinController>();
+		//pc.originPos.x = locationProvider.latlon.x;
+		//pc.originPos.y = locationProvider.latlon.y;
+		//pc.Map = Map;
+		//LocationInfo li = new LocationInfo();
 		//Debug.Log("alt: " + Input.location.lastData.altitude);
-		float deviceAlt = Input.location.lastData.altitude;
+		//float deviceAlt = Input.location.lastData.altitude;
 		//Debug.log("alt: " + Input.location.lastData.altitude);
 		BlocksSpawner.Instance.SaveMessage ("test",cursorY,locationProvider.latlon.x, locationProvider.latlon.y,Input.location.lastData.altitude,1,1);
 	}

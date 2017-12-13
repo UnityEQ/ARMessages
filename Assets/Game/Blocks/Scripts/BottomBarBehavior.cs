@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mapbox.Unity.Location;
+using Mapbox.Unity.Utilities;
+using Mapbox.Unity.Map;
+using Mapbox.Utils;
+using Mapbox.Examples;
 
 namespace UnityEngine.XR.iOS
 {
@@ -10,7 +15,8 @@ namespace UnityEngine.XR.iOS
 		public Transform Weapon, Diamond, Ball, Block4x4;
 		public GameObject m_ballPrefab;
 		public FocusSquare focusSquare;
-		public PlacePins placePins;
+		//public PlacePins placePins;
+		public PositionWithLocationProvider locationProvider;
 			
 		public GameObject PickAxeParent;
 
@@ -76,8 +82,12 @@ namespace UnityEngine.XR.iOS
 			if (currentSelected == Selected.Diamond) {
 				if(focusSquare.foundSquare.activeSelf){
 					Vector3 tempV = new Vector3(0f,0f,8.4f);
-					GameObject newBlock = Instantiate (DiamondOre, focusSquare.foundSquare.transform.position, focusSquare.foundSquare.transform.rotation);
-					placePins.PinPlacer(newBlock,focusSquare.foundSquare.transform.localPosition.y);
+					//gamesparks api
+					//GameObject newBlock = Instantiate (DiamondOre, focusSquare.foundSquare.transform.position, focusSquare.foundSquare.transform.rotation);
+//					placePins.PinPlacer(focusSquare.foundSquare.transform.position,focusSquare.foundSquare.transform.rotation,focusSquare.foundSquare.transform.localPosition.y);
+					//PinPlacer(Vector3 pos, Vector3 rot, float cursorY)
+					BlocksSpawner.Instance.SaveMessage ("test",focusSquare.foundSquare.transform.localPosition.y,locationProvider.latlon.x, locationProvider.latlon.y,Input.location.lastData.altitude,1,1);
+					BlocksSpawner.Instance.CleanPool(true);
 				}
 			} else {
 				focusSquare.trackingInitialized = true;

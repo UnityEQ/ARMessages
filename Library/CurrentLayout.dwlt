@@ -40,8 +40,8 @@ MonoBehaviour:
     y: 496
     width: 1069
     height: 271
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 23}
   m_Panes:
   - {fileID: 18}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 342}
   m_MaxSize: {x: 12008, y: 8042}
   vertical: 0
-  controlID: 32
+  controlID: 74
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
     y: 0
     width: 1600
     height: 817
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 392}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 342}
   m_MaxSize: {x: 8006, y: 8042}
   vertical: 1
-  controlID: 33
+  controlID: 75
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 12
+  controlID: 54
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -568,7 +568,7 @@ MonoBehaviour:
     width: 1067
     height: 250
   m_SearchFilter:
-    m_NameFilter: blocks
+    m_NameFilter: 
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -579,19 +579,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Game/Blocks/Scripts
+    - Assets/Mapbox/Unity/Utilities
   m_ViewMode: 1
-  m_StartGridSize: 64
+  m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Game/Blocks/Scripts
+  - Assets/Mapbox/Unity/Utilities
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Daniel\Documents\GitHub\ARMessages
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 21}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 00000000902d0000fa2d0000be2e0000182f0000602f0000b42f0000da2f0000f830000026320000f43200008c3300002a34000050340000ca340000ce34000056350000de35000016360000ce360000423700003a3d00003c3d00003e3d0000403d0000423d0000443d0000463d0000483d00004a3d00004c3d00004e3d0000503d0000523d0000543d0000
+    scrollPos: {x: 0, y: 540}
+    m_SelectedIDs: 2a340000
+    m_LastClickedID: 13354
+    m_ExpandedIDs: 000000008a2d0000f42d0000b82e0000122f00005a2f0000ae2f0000d42f0000f230000020320000ee32000086330000243400004a340000c4340000c834000050350000d835000010360000c83600003c3700003e3d0000403d0000423d0000443d0000463d0000483d00004a3d00004c3d00004e3d0000503d0000523d0000543d0000563d0000583d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -619,7 +619,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000902d0000fa2d0000be2e0000182f0000602f0000b42f0000da2f0000f830000026320000f43200008c3300002a34000050340000ca340000ce34000056350000de35000016360000ce360000423700003a3d00003c3d00003e3d0000403d0000423d0000443d0000463d0000483d00004a3d00004c3d00004e3d0000503d0000523d0000543d0000
+    m_ExpandedIDs: 000000008a2d0000f42d0000b82e0000122f00005a2f0000ae2f0000d42f0000f230000020320000ee32000086330000243400004a340000c4340000c834000050350000d835000010360000c83600003c3700003e3d0000403d0000423d0000443d0000463d0000483d00004a3d00004c3d00004e3d0000503d0000523d0000543d0000563d0000583d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -644,8 +644,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b4500000
-    m_LastClickedInstanceID: 20660
+    m_SelectedInstanceIDs: 9c0c0000
+    m_LastClickedInstanceID: 3228
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 107c0600684e0100dc3a00003ca7030084c20300c2410000502600004e630000ce490000902b00005c2b00003e2e0000e6270000be390000522e000072270000742e0000802c0000c227000046280000a0270000a4270000ba270000a62700003a270000a827000062270000ec27000060060000d42c0000c6e6ffff00000000b864fdff3c070000
     m_RenameOverlay:
@@ -663,7 +663,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -671,8 +671,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
-    m_GridSize: 64
+    m_ScrollPosition: {x: 0, y: 27}
+    m_GridSize: 16
   m_DirectoriesAreaWidth: 234
 --- !u!114 &19
 MonoBehaviour:
@@ -735,9 +735,9 @@ MonoBehaviour:
     height: 475
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: aa380000
-    m_LastClickedID: 14506
-    m_ExpandedIDs: a0fbffff00000000d6380000e4380000f0390000
+    m_SelectedIDs: 24390000
+    m_LastClickedID: 14628
+    m_ExpandedIDs: a6fbffff00000000f2390000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -787,14 +787,14 @@ MonoBehaviour:
     width: 670
     height: 475
   m_SceneLighting: 1
-  lastFramingTime: 195.94020885682056
+  lastFramingTime: 3156.746312768314
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.5695765, y: -0.893732, z: -69.03485}
+    m_Target: {x: 0, y: 0, z: 0}
     speed: 2
-    m_Value: {x: 3.5695765, y: -0.893732, z: -69.03485}
+    m_Value: {x: 0, y: 0, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -817,13 +817,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.0002745109, y: -0.9967153, z: 0.0032994351, w: 0.08151862}
+    m_Target: {x: -0.09414264, y: -0.6777234, z: 0.08813109, w: -0.7239904}
     speed: 2
-    m_Value: {x: 0.00027449752, y: -0.9966667, z: 0.0032992742, w: 0.08151465}
+    m_Value: {x: 0.09414264, y: 0.6777234, z: -0.08813109, w: 0.7239903}
   m_Size:
-    m_Target: 71.726456
+    m_Target: 0.5715768
     speed: 2
-    m_Value: 71.726456
+    m_Value: 0.5715768
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -904,7 +904,7 @@ MonoBehaviour:
       width: 1407.4532
       height: 962.10986
     m_MinimalGUI: 1
-  m_defaultScale: 1
+  m_defaultScale: 0.47708333
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
   m_LastWindowPixelSize: {x: 670, y: 475}

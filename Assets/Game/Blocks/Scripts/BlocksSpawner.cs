@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Mapbox.Unity.Location;
 using Mapbox.Unity.Utilities;
@@ -55,19 +56,26 @@ public class BlocksSpawner : MonoBehaviour {
 				Debug.Log("Received Player Data From GameSparks...");
 				List<GSData> locations = response.ScriptData.GetGSDataList ("all_Blocks");
 				for (var e = locations.GetEnumerator (); e.MoveNext ();) {
+					var name = e.Current.GetString ("name");
 					var lat = double.Parse(e.Current.GetString ("lat"));
 					var lon = double.Parse(e.Current.GetString ("lon"));
+					var height = double.Parse(e.Current.GetString ("height"));
+					var material = int.Parse(e.Current.GetString ("material"));
+					var hp = float.Parse(e.Current.GetString ("hp"));
 					var blockY = float.Parse(e.Current.GetString ("blockY"));
-					var llpos = new Vector2d(lat, lon);
-					var pos = Conversions.GeoToWorldPosition(llpos, Map.CenterMercator, Map.WorldRelativeScale);					
-					placePins.Coordinates.Add(new Vector3((float)pos.x,blockY,(float)pos.y));
 					
-					Vector2d mapRefPoint = new Vector2d (arCamera.transform.position.x, arCamera.transform.position.z);
-					var pos2 = Conversions.GeoToWorldPosition(llpos, mapRefPoint, Map.WorldRelativeScale);					
-					placePins.CoordinatesB.Add(new Vector3((float)pos.x,blockY,(float)pos.y));
-//					placePins.CoordinatesB.Add(float.Parse(e.Current.GetString ("cursorY")));
+					ObjectPool.instance.GetObjectForType("Pin",Map,name,lat,lon,height,material,hp,blockY);
+					ObjectPool.instance.GetObjectForType("Stack1x1x1",Map,name,lat,lon,height,material,hp,blockY);
+					
+//					var llpos = new Vector2d(lat, lon);
+//					var pos = Conversions.GeoToWorldPosition(llpos, Map.CenterMercator, Map.WorldRelativeScale);					
+//					placePins.Coordinates.Add(new Vector3((float)pos.x,blockY,(float)pos.y));
+//					
+//					Vector2d mapRefPoint = new Vector2d (arCamera.transform.position.x, arCamera.transform.position.z);
+//					var pos2 = Conversions.GeoToWorldPosition(llpos, mapRefPoint, Map.WorldRelativeScale);					
+//					placePins.CoordinatesB.Add(new Vector3((float)pos.x,blockY,(float)pos.y));
 				}
-				placePins.LoadPins();
+//				placePins.LoadPins();
 			} else {
 				Debug.Log("Error Loading Message Data...");
 			}
@@ -98,4 +106,27 @@ public class BlocksSpawner : MonoBehaviour {
 			}
 		});
 	}
+	
+		public void CleanPool(bool reset)
+		{
+            GameObject temp = null;
+			
+			//temp = ObjectPool.instance.spawnlist.FirstOrDefault(obj => obj.name == spawn_id.ToString());
+            if (ObjectPool.instance)
+            {
+                if (ObjectPool.instance.spawnlist.Count != 0)
+                {
+					while (ObjectPool.instance.spawnlist.Count != 0)
+					{
+					    temp = ObjectPool.instance.spawnlist.First();
+					    string PrefabName = temp.GetComponent<PinController>().prefabName;
+						
+					    temp.name = PrefabName;
+					    ObjectPool.instance.PoolObject(temp);
+					    ObjectPool.instance.spawnlist.Remove(temp);
+					}
+                }
+            }
+			if(reset){LoadAllMessages();}
+		}
 }
