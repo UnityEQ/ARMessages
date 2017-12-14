@@ -105,8 +105,8 @@ public class BlocksSpawner : MonoBehaviour {
 		new GameSparks.Api.Requests.LogEventRequest ()
 		
 		.SetEventKey ("STORE")
-		.SetEventAttribute ("LON", latlon.x.ToString())
-		.SetEventAttribute ("LAT", latlon.y.ToString())
+		.SetEventAttribute ("LON", (long)latlon.x)
+		.SetEventAttribute ("LAT", (long)latlon.y)
 		.Send ((response) => {
 				
 			if (!response.HasErrors) {
