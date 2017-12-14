@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -32,8 +33,8 @@ public class BlocksSpawner : MonoBehaviour {
 
 		yield return new WaitForSeconds (2f);
 		LoadAllMessages();
-		//SavePlayer(new Vector2d(11,11));
-		//LoadPlayers();
+		//SavePlayer(11,11);
+		LoadPlayers();
 		//SaveMessage ("1", 1.1,1.1,1.1,1,1);
 	}
 
@@ -84,16 +85,19 @@ public class BlocksSpawner : MonoBehaviour {
 		});
 	}
 	
-	public void LoadPlayers(){
-
-		List<GameObject> messageObjectList = new List<GameObject> ();
+	public void LoadPlayers(){		
+		new GameSparks.Api.Requests.LogEventRequest()
 		
-		new GameSparks.Api.Requests.LogEventRequest().SetEventKey("NEAR_ME").Send((response) => {
+		.SetEventKey("NEAR_ME")
+		.SetEventAttribute ("MAX_DIST", 100)
+		.SetEventAttribute ("SINCE", 15)
+		.Send((response) => {
+			
 			if (!response.HasErrors) {
-				Debug.Log("Received Player Data From GameSparks...");
+				Debug.Log("R2eceived Player Data From GameSparks...");
 				List<GSData> locations = response.ScriptData.GetGSDataList ("data");
 				for (var e = locations.GetEnumerator (); e.MoveNext ();) {
-					Debug.Log(e.Current.GetString ("coordinates"));
+					Debug.Log("hj");
 				}
 			} else {
 				Debug.Log("Error Loading Message Data...");
@@ -101,13 +105,13 @@ public class BlocksSpawner : MonoBehaviour {
 		});
 	}
 	
-	public void SavePlayer(Vector2d latlon) {
+	public void SavePlayer(double latx, double lony) {
 		new GameSparks.Api.Requests.LogEventRequest ()
-		
-		.SetEventKey ("STORE")
-		.SetEventAttribute ("LON", (long)latlon.x)
-		.SetEventAttribute ("LAT", (long)latlon.y)
-		.Send ((response) => {
+
+			.SetEventKey ("STORE_LOC")
+			.SetEventAttribute ("LON", lony.ToString())
+			.SetEventAttribute ("LAT", latx.ToString())
+			.Send ((response) => {
 				
 			if (!response.HasErrors) {
 				Debug.Log ("Message Saved To GameSparks...");

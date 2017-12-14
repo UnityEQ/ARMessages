@@ -76,7 +76,7 @@ namespace Mapbox.Examples
 			if (_isInitialized)
 			{
 				latlon = location.LatitudeLongitude;
-				BlocksSpawner.Instance.SavePlayer(location.LatitudeLongitude);
+				BlocksSpawner.Instance.SavePlayer(location.LatitudeLongitude.x,location.LatitudeLongitude.y);
 				_targetPosition = Conversions.GeoToWorldPosition(location.LatitudeLongitude,
 																 _map.CenterMercator,
 																 _map.WorldRelativeScale).ToVector3xz();

@@ -1475,7 +1475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcbec1ed7768a40ea93d476c23a129c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializeOnStart: 1
+  _initializeOnStart: 0
   _latitudeLongitudeString: 45.533385, -122.645224
   _zoom: 18
   _root: {fileID: 0}
