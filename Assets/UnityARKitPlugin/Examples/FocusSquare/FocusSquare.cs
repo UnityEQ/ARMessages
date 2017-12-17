@@ -13,6 +13,7 @@ public class FocusSquare : MonoBehaviour {
 
 	public GameObject findingSquare;
 	public GameObject foundSquare;
+	public Camera mainCam;
 
 	//for editor version
 	public float maxRayDistance = 30.0f;
@@ -71,7 +72,7 @@ public class FocusSquare : MonoBehaviour {
 		if (Physics.Raycast (ray, out hit, maxRayDistance, collisionLayerMask)) {
 			//we're going to get the position from the contact point
 			foundSquare.transform.position = hit.point;
-			var newBlockPosition = hit.transform.position + hit.normal;
+			//var newBlockPosition = hit.transform.position + hit.normal;
 			//Debug.Log(newBlockPosition + " :NEW");
 			//Debug.Log (string.Format ("x:{0:0.######} y:{1:0.######} z:{2:0.######}", foundSquare.transform.position.x, foundSquare.transform.position.y, foundSquare.transform.position.z));
 

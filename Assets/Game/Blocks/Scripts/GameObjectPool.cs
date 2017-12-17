@@ -54,11 +54,12 @@ public class GameObjectPool : MonoBehaviour
     public List<GameObject>[] Pool;
 
     public List<GameObject> spawnlist;
+	public GameObject spawnContainer;
+	private GameObject ContainerObject; 
 
     /// <summary>
     /// The container object that we will keep unused pooled objects so we dont clog up the editor with objects.
     /// </summary>
-    protected GameObject ContainerObject;
     void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
@@ -126,14 +127,16 @@ public class GameObjectPool : MonoBehaviour
             {
                 GameObject pooledObject = Pool[i][0];
                 Pool[i].RemoveAt(0);
-                pooledObject.transform.parent = this.gameObject.transform;
+				pooledObject.transform.SetParent(spawnContainer.transform, false);
+
+
                 pooledObject.SetActiveRecursively(true);
 				var llpos = new Vector2d(lat, lon);
 				var pos = Conversions.GeoToWorldPosition(llpos, Map.CenterMercator, Map.WorldRelativeScale);
 				//Vector3 pos = new Vector3(x, y, z);
 				
                 if(objectType == "Pin"){pooledObject.transform.position = new Vector3((float)pos.x,0f,(float)pos.y);}
-				if(objectType == "Stack1x1x1"){pooledObject.transform.position = new Vector3((float)pos.x,blockY,(float)pos.y);}
+				//if(objectType == "Stack1x1x1"){pooledObject.transform.position = new Vector3((float)pos.x,blockY,(float)pos.y);}
                 //heading
                 //float h = Mathf.Lerp(360, 0, heading / 255f);
                 //					pooledObject.transform.eulerAngles.y = h;
@@ -177,9 +180,9 @@ public class GameObjectPool : MonoBehaviour
 
             obj.SetActiveRecursively(false);
 
-            obj.transform.parent = ContainerObject.transform;
+            obj.transform.SetParent(ContainerObject.transform, false);
 			ContainerObject.name = "Pooled Objects";
-            DontDestroyOnLoad(ContainerObject);
+            //DontDestroyOnLoad(ContainerObject);
             Pool[i].Add(obj);
 
             return;

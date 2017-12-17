@@ -31,10 +31,11 @@ public class BlocksSpawner : MonoBehaviour {
 
 	IEnumerator DelayTestMessage(){
 
-		yield return new WaitForSeconds (2f);
+		yield return new WaitForSeconds (5f);
 		LoadAllMessages();
+//test
 		//SavePlayer(11,11);
-		LoadPlayers();
+		//LoadPlayers();
 		//SaveMessage ("1", 1.1,1.1,1.1,1,1);
 	}
 
@@ -51,7 +52,6 @@ public class BlocksSpawner : MonoBehaviour {
 	}
 
 	public void LoadAllMessages(){
-
 		List<GameObject> messageObjectList = new List<GameObject> ();
 		
 		new GameSparks.Api.Requests.LogEventRequest().SetEventKey("LOAD_BLOCKS").Send((response) => {
@@ -68,8 +68,8 @@ public class BlocksSpawner : MonoBehaviour {
 					var blockY = float.Parse(e.Current.GetString ("blockY"));
 					
 					GameObjectPool.instance.GetObjectForType("Pin",Map,name,lat,lon,height,material,hp,blockY);
-					GameObjectPool.instance.GetObjectForType("Stack1x1x1",Map,name,lat,lon,height,material,hp,blockY);
-					
+					//GameObjectPool.instance.GetObjectForType("Stack1x1x1",Map,name,lat,lon,height,material,hp,blockY);
+//old					
 //					var llpos = new Vector2d(lat, lon);
 //					var pos = Conversions.GeoToWorldPosition(llpos, Map.CenterMercator, Map.WorldRelativeScale);					
 //					placePins.Coordinates.Add(new Vector3((float)pos.x,blockY,(float)pos.y));
@@ -106,6 +106,7 @@ public class BlocksSpawner : MonoBehaviour {
 	}
 	
 	public void SavePlayer(double latx, double lony) {
+		Debug.Log("LATY : " + latx);
 		new GameSparks.Api.Requests.LogEventRequest ()
 
 			.SetEventKey ("STORE_LOC")
