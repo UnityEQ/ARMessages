@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 135538556347393564}
   - component: {fileID: 23126356523588844}
   - component: {fileID: 114032732118085644}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 33650801396036502}
   - component: {fileID: 135573868085148600}
   - component: {fileID: 23132726769483662}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Inner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 65908876872074046}
   - component: {fileID: 23178916583890668}
   - component: {fileID: 114715690831412702}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Stack1x1x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 222354144576224912}
   - component: {fileID: 114941642289067284}
   - component: {fileID: 135869543234826014}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Pin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,8 +348,8 @@ MonoBehaviour:
   hp: 0
   blockY: 0
   outerColor: {fileID: 1029547272688168}
-  rend: {fileID: 0}
-  btn: {fileID: 0}
+  rendPin: {fileID: 0}
+  rendBlock: {fileID: 0}
   block: {fileID: 1421574735031948}
 --- !u!135 &135538556347393564
 SphereCollider:

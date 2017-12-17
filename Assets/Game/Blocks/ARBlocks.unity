@@ -2769,7 +2769,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 800
+    m_Bits: 768
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3225,7 +3225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 061d2afb48ace4fd19611279b6cf732f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationFollowFactor: 0
+  _rotationFollowFactor: 1
   _rotateZ: 0
   _useTransformLocationProvider: 0
 --- !u!114 &1774462359
@@ -3241,7 +3241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _map: {fileID: 618199557}
-  _positionFollowFactor: 0
+  _positionFollowFactor: 1
   _useTransformLocationProvider: 0
   _targetPosition: {x: 0, y: 0, z: 0}
   latlon:
