@@ -20,9 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4939700576881382}
   - component: {fileID: 33488105632968210}
-  - component: {fileID: 135538556347393564}
   - component: {fileID: 23126356523588844}
-  - component: {fileID: 114032732118085644}
   m_Layer: 8
   m_Name: Outer
   m_TagString: Untagged
@@ -39,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4595922096873556}
   - component: {fileID: 33650801396036502}
-  - component: {fileID: 135573868085148600}
   - component: {fileID: 23132726769483662}
   m_Layer: 8
   m_Name: Inner
@@ -60,7 +57,7 @@ GameObject:
   - component: {fileID: 65908876872074046}
   - component: {fileID: 23178916583890668}
   - component: {fileID: 114715690831412702}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Stack1x1x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +72,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224693162148133818}
-  - component: {fileID: 222354144576224912}
   - component: {fileID: 114941642289067284}
   - component: {fileID: 135869543234826014}
   m_Layer: 8
@@ -259,58 +255,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114032732118085644
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1029547272688168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114941642289067284}
-        m_MethodName: ChangeColor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114715690831412702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -351,30 +295,6 @@ MonoBehaviour:
   rendPin: {fileID: 0}
   rendBlock: {fileID: 0}
   block: {fileID: 1421574735031948}
---- !u!135 &135538556347393564
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1029547272688168}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135573868085148600
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1263077956189160}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135869543234826014
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -387,12 +307,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5.09587
   m_Center: {x: -0.2, y: 0, z: 1.0000002}
---- !u!222 &222354144576224912
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1701580411213532}
 --- !u!224 &224693162148133818
 RectTransform:
   m_ObjectHideFlags: 1

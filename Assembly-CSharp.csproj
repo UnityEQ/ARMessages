@@ -58,6 +58,7 @@
      <Compile Include="Assets\Game\Blocks\Scripts\BlockInfo.cs" />
      <Compile Include="Assets\Game\Blocks\Scripts\BlocksSpawner.cs" />
      <Compile Include="Assets\Game\Blocks\Scripts\BottomBarBehavior.cs" />
+     <Compile Include="Assets\Game\Blocks\Scripts\Cylinder.cs" />
      <Compile Include="Assets\Game\Blocks\Scripts\ExplosionBehavior.cs" />
      <Compile Include="Assets\Game\Blocks\Scripts\GameObjectPool.cs" />
      <Compile Include="Assets\Game\Blocks\Scripts\PinController.cs" />

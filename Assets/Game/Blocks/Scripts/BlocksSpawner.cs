@@ -17,6 +17,7 @@ public class BlocksSpawner : MonoBehaviour {
 	public AbstractMap Map;
 	public GameObject arCamera;
 	public static BlocksSpawner Instance { get { return _instance; } } 
+	public PositionWithLocationProvider locationProvider;
 
 	public GameObject messagePrefabAR;
 
@@ -33,10 +34,21 @@ public class BlocksSpawner : MonoBehaviour {
 
 		yield return new WaitForSeconds (5f);
 		LoadAllMessages();
+		StartCoroutine (PlayerLocation());
 //test
 		//SavePlayer(11,11);
 		//LoadPlayers();
 		//SaveMessage ("1", 1.1,1.1,1.1,1,1);
+	}
+	
+	IEnumerator PlayerLocation(){
+		while(true) 
+		{ 
+			Debug.Log ("OnCoroutine: "+(int)Time.time);
+			Vector2d test = locationProvider.latlon;
+			SavePlayer(test.x,test.y);
+			yield return new WaitForSeconds(3f);
+		}
 	}
 
 	public void RemoveAllMessages(){
@@ -115,7 +127,7 @@ public class BlocksSpawner : MonoBehaviour {
 			.Send ((response) => {
 				
 			if (!response.HasErrors) {
-				Debug.Log ("Message Saved To GameSparks...");
+				Debug.Log ("Saved player location to database");
 			} else {
 				Debug.Log ("Error Saving Message Data...");
 			}
